@@ -2,15 +2,16 @@ const fs = require('fs');
 const path = require ('path');
 const express = require('express');
 
-// Read from a JSON file 
-const jsonPath = path.join(__dirname, 'data', 
- 'movies10.json'); 
-const jsonData = fs.readFileSync(jsonPath, 'utf8'); 
-// convert string data into JSON object 
-const movies = JSON.parse(jsonData); 
-
 // Create an express app
 const app = express();
+
+// Reference Modules
+const movies = require('./scripts/data-provider.js')
+
+// Return all stocks when a root request arrives
+app.get('/', (req,resp) => {
+    resp.json(movies)
+});
 
 // Return all stocks when a root request arrives
 app.get('/api/movies', (req,resp) => {
