@@ -1,0 +1,22 @@
+{
+  "name": "node-assignment",
+  "version": "1.0.0",
+  "description": "A Assignment for Web Development",
+  "main": "movies-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcogonzalez99/node-assignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcogonzalez99/node-assignment/issues"
+  },
+  "homepage": "https://github.com/marcogonzalez99/node-assignment#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
