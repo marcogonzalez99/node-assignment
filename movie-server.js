@@ -13,6 +13,13 @@ const movieRouter = require('./handlers/movieRouter.js');
 
 // Routers
 movieRouter.handleAllMovies(app, Movie);
+movieRouter.handleLimitMovies(app, Movie);
+movieRouter.handleMovieAverage(app, Movie);
+movieRouter.handleMovieGenre(app, Movie);
+movieRouter.handleMovieTMDB(app, Movie);
+movieRouter.handleMovieTitle(app, Movie);
+movieRouter.handleMovieYear(app, Movie);
+movieRouter.handleSingleMovie(app, Movie);
 
 // Create connection to the database
 require('./handlers/dataConnector.js').connect();

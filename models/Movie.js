@@ -4,7 +4,7 @@ const movieSchema = new mongoose.Schema({
     id: Number,
     tmdb_id: Number,
     imdb_id: String,
-    release_date: String,
+    release_date: Date,
     title: String,
     runtime: Number,
     revenue: Number,
@@ -25,4 +25,4 @@ const movieSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Movie', movieSchema);
+module.exports = mongoose.model('Movie', movieSchema, 'Movies-300');

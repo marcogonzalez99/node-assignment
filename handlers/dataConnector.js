@@ -7,7 +7,7 @@ const connect = () => {
     const opt = {
         useUnifiedTopology: true,
         useNewUrlParser: true,
-        dbName: 'books-test'
+        dbName: 'Node-Assignment'
     };
 
     console.log("Starting to Connect to Mongo");
