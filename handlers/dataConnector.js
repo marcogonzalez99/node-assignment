@@ -8,7 +8,7 @@ const connect = () => {
         useUnifiedTopology: true,
         useNewUrlParser: true,
         dbName: 'Node-Assignment'
-    };
+    };  
 
     console.log("Starting to Connect to Mongo");
 
