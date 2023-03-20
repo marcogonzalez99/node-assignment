@@ -31,7 +31,7 @@ const handleSingleMovie = (app, Movie) => {
     app.get('/api/movies/:id', (req,resp) => {
         Movie.find({ id: req.params.id })
             .then((data) => {
-                if (data) {
+                if (data.length > 0) {
                     resp.json(data);
                 } else {
                     resp.json({ messsage: "No Such Record Found"});
@@ -47,7 +47,7 @@ const handleMovieTMDB = (app, Movie) => {
     app.get('/api/movies/tmdb/:tmdb_id', (req,resp) => {
         Movie.find({ tmdb_id: req.params.tmdb_id })
             .then((data) => {
-                if (data) {
+                if (data.length > 0) {
                     resp.json(data);
                 } else {
                     resp.json({ message: "No Such Record Found"});
