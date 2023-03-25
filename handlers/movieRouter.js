@@ -78,18 +78,25 @@ const handleMovieTMDB = (app, Movie) => {
 
 const handleMovieYear = (app, Movie) => {
     app.get('/api/movies/year/:min/:max', (req,resp) => {
-        Movie.find()
-            .where("release_date")
-            .gt(req.params.min)
-            .lt(req.params.max)
-            .select("title")
-            .exec()
-            .then((data) => {
-                resp.json(data);
-            })
-            .catch((err) => {
-                resp.json({ message: "Unable to Connect to Movies"});
-            })
+        const minYear = parseInt(req.params.min);
+        const maxYear = parseInt(req.params.max);
+
+        Movie.find({})
+        .exec()
+        .then((movies) => {
+            const filteredMovies = movies.filter((movie) => {
+            const releaseYear = parseInt(movie.release_date.slice(0, 4));
+            return releaseYear >= minYear && releaseYear <= maxYear;
+            });
+            const result = filteredMovies.map((movie) => {
+            return { title: movie.title };
+            });
+            console.log(result);
+            resp.json(result);
+        })
+        .catch((err) => {
+            resp.json({ message: 'Unable to Connect to Movies' });
+        });
     });
 };
 
@@ -151,20 +158,8 @@ const handleMovieGenre = (app, Movie) => {
 
         // Finding in an array from 
         // https://www.mongodb.com/docs/manual/reference/operator/query/elemMatch/
-        const query = {
-            details: {
-                $elemMatch: {
-                    genres: {
-                        name: {
-                            $regex: genreToFind,
-                            $options: 'i'
-                        }
-                    }
-                }
-            }
-        };
 
-        Movie.find(query)
+        Movie.find({ 'details.genres.name': { $regex: genreToFind, $options: 'i' } })
         .then((data) => {
             if (data.length > 0) {
                 resp.json(data);
