@@ -21,6 +21,17 @@ movieRouter.handleMovieTitle(app, Movie);
 movieRouter.handleMovieYear(app, Movie);
 movieRouter.handleSingleMovie(app, Movie);
 
+// Engine
+app.set('views', './views');
+app.set('view engine', 'ejs');
+
+
+// Rendering a home page
+app.get('/' ,(req, res) => {
+    res.render('home.ejs');
+});
+
+
 // Create connection to the database
 require('./handlers/dataConnector.js').connect();
 
