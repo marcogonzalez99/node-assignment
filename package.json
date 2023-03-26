@@ -2,7 +2,7 @@
   "name": "node-assignment",
   "version": "1.0.0",
   "description": "A Assignment for Web Development",
-  "main": "movies-api.js",
+  "main": "movie-server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node movie-server.js"
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/marcogonzalez99/node-assignment/issues"
   },
-  "homepage": "https://github.com/marcogonzalez99/node-assignment#readme",
+  "homepage": "https://github.com/marcogonzalez99/node-assignment/",
   "dependencies": {
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
