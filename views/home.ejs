@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <%- include('./partials/head'); %>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
 </head>
 <body>
-    <main class="movie">
-    <%- include('./partials/header'); %>
-    <section class="menu">
-    <%- include('./partials/main'); %>
-    </section>
+    <main class="main_content">
+        <div class="hero_section">
+            
+            <img src="/images/hero_image.jpg" alt="My Image">
+            <div class="container">
+                <section class="menu">
+                    <form>
+                        <label for="username">
+                        Username
+                        </label>
+                        <input type="text" id="username" name="username">
+                
+                        <label for="password">
+                        Password
+                        </label>
+                        <input type="password" id="password" name="password">
+                
+                        <button type="submit">
+                        Login
+                        </button>
+                    </form>
+                </section>
+            </div>
+        </div>
     </main>
-    <%- include('./partials/footer'); %>
 </body>
 </html>

@@ -1,0 +1,27 @@
+:root {
+    --primary-color: #F5F5F5; /* Light White */
+    --secondary-color: #F0F8FF; /* White/Blue */
+    --accent-color: #FFA500; /* Bright Orange */
+    --text-color: #333333; /* Dark Grey */
+    --background-color: #F5F5F5; /* Light Grey */
+}
+
+.hero_section {
+    position: relative;
+    height: calc(100vh - 20px); /* Subtract 20px from the top and bottom */
+    width: calc(100vw - 20px); /* Subtract 20px from the left and right */
+    overflow: hidden;
+}
+  
+.hero_section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+
+
+  

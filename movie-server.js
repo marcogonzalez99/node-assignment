@@ -7,6 +7,9 @@ const Movie = require('./models/Movie');
 
 // Tell Node to use JSON and HTTP Header features in body-parser
 app.use(express.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/images'));
+
 
 // User the route handlers
 const movieRouter = require('./handlers/movieRouter.js');
