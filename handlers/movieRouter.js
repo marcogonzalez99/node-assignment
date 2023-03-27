@@ -13,11 +13,13 @@ const handleAllMovies = (app, Movie) => {
 const handleLimitMovies = (app, Movie) => {
     app.get('/api/movies/limit/:num', (req,resp) => {
 
+        // This is a check to see if the input is a number or not, returns JSON message
         if (isNaN(req.params.num)) {
             resp.json({ message: "Invalid input" });
             return;
         }
 
+        // First checks to see if the number we gave it, is within range
         if (req.params.num >= 1 && req.params.num <= 200) {
             Movie.find()
             .limit(req.params.num)
@@ -36,6 +38,7 @@ const handleLimitMovies = (app, Movie) => {
 const handleSingleMovie = (app, Movie) => {
     app.get('/api/movies/:id', (req,resp) => {
 
+        // This is a check to see if the input is a number or not, returns JSON message
         if (isNaN(req.params.id)) {
             resp.json({ message: "Invalid input" });
             return;
@@ -58,6 +61,7 @@ const handleSingleMovie = (app, Movie) => {
 const handleMovieTMDB = (app, Movie) => {
     app.get('/api/movies/tmdb/:tmdb_id', (req,resp) => {
 
+        // This is a check to see if the input is a number or not, returns JSON message
         if (isNaN(req.params.tmdb_id)) {
             resp.json({ message: "Invalid input" });
             return;
@@ -82,21 +86,20 @@ const handleMovieYear = (app, Movie) => {
         const maxYear = parseInt(req.params.max);
 
         Movie.find({})
-        .exec()
-        .then((movies) => {
-            const filteredMovies = movies.filter((movie) => {
-            const releaseYear = parseInt(movie.release_date.slice(0, 4));
-            return releaseYear >= minYear && releaseYear <= maxYear;
+            .exec()
+            .then((movies) => {
+                const filteredMovies = movies.filter((movie) => {
+                const releaseYear = parseInt(movie.release_date.slice(0, 4));
+                return releaseYear >= minYear && releaseYear <= maxYear;
+                });
+                const result = filteredMovies.map((movie) => {
+                return { title: movie.title };
+                });
+                resp.json(result);
+            })
+            .catch((err) => {
+                resp.json({ message: 'Unable to Connect to Movies' });
             });
-            const result = filteredMovies.map((movie) => {
-            return { title: movie.title };
-            });
-            console.log(result);
-            resp.json(result);
-        })
-        .catch((err) => {
-            resp.json({ message: 'Unable to Connect to Movies' });
-        });
     });
 };
 
@@ -105,6 +108,7 @@ const handleMovieAverage = (app, Movie) => {
         const minRating = req.params.min;
         const maxRating = req.params.max;
 
+        // This is a check to see if the input is a number or not, returns JSON message, also checks to see if the numbers are in range
         if (isNaN(minRating) || isNaN(maxRating) || maxRating < minRating || maxRating > 10 || minRating < 0) {
             resp.json({ message: "Invalid rating range" });
             return;

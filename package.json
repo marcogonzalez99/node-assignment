@@ -25,5 +25,7 @@
     "mongoose": "^7.0.2",
     "sqlite3": "^5.1.6"
   },
-  "engines": { "node": "16.x" }
+  "engines": {
+    "node": "18.x"
+  }
 }
