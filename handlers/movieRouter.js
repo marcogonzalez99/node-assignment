@@ -84,20 +84,23 @@ const handleMovieYear = (app, Movie) => {
     app.get('/api/movies/year/:min/:max', (req,resp) => {
         const minYear = parseInt(req.params.min);
         const maxYear = parseInt(req.params.max);
-
         Movie.find({})
             .exec()
             .then((movies) => {
                 const filteredMovies = movies.filter((movie) => {
-                const releaseYear = parseInt(movie.release_date.slice(0, 4));
+                const releaseYear = parseInt(String(movie.release_date).slice(11, 15));
                 return releaseYear >= minYear && releaseYear <= maxYear;
                 });
-                const result = filteredMovies.map((movie) => {
+                /*const result = filteredMovies.map((movie) => {
                 return { title: movie.title };
                 });
-                resp.json(result);
+                
+                resp.json(filteredMovies);
             })
+            
+
             .catch((err) => {
+                console.log(err.stack, err.name, err.message);
                 resp.json({ message: 'Unable to Connect to Movies' });
             });
     });
