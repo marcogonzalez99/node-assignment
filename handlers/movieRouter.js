@@ -93,8 +93,7 @@ const handleMovieYear = (app, Movie) => {
                 });
                 /*const result = filteredMovies.map((movie) => {
                 return { title: movie.title };
-                });
-                
+                });*/
                 resp.json(filteredMovies);
             })
             
