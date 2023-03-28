@@ -5,6 +5,10 @@
 
 # Github URL - https://github.com/marcogonzalez99/node-assignment
 
+# ---------------------------------------------
+# Movies Cases
+# ---------------------------------------------
+
 # /api/movies - https://node-assignment-1.glitch.me/api/movies
 
 # ---------------------------------------------
@@ -70,7 +74,7 @@
 
 # Genre that returns matches - https://node-assignment-1.glitch.me/api/movies/genre/thriller
 
-# Genre that does not return any matches - https://node-assignment-1.glitch.me/api/movies/genre/house
+# Genre that does not return any matches - https://node-assignment-1.glitch.me/api/movies/genre/musical
 
 # Genre partial match returning matches - https://node-assignment-1.glitch.me/api/movies/genre/act
 
