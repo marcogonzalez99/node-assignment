@@ -1,5 +1,4 @@
 require('dotenv').config();
-console.log(process.env.MONGO_URL);
 
 const mongoose = require('mongoose');
 
