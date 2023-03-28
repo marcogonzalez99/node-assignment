@@ -84,6 +84,12 @@ const handleMovieYear = (app, Movie) => {
     app.get('/api/movies/year/:min/:max', (req,resp) => {
         const minYear = parseInt(req.params.min);
         const maxYear = parseInt(req.params.max);
+
+        if (isNaN(minYear) || isNaN(maxYear) || maxYear < minYear) {
+            resp.json({ message: "Invalid rating range" });
+            return;
+        }
+
         Movie.find({})
             .exec()
             .then((movies) => {
