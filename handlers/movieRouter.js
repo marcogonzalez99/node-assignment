@@ -85,7 +85,7 @@ const handleMovieYear = (app, Movie) => {
         const minYear = parseInt(req.params.min);
         const maxYear = parseInt(req.params.max);
 
-        if (isNaN(minYear) || isNaN(maxYear) || maxYear < minYear) {
+        if (isNaN(minYear) || isNaN(maxYear) || maxYear < minYear || minYear < 1900 || maxYear > 2050) {
             resp.json({ message: "Invalid rating range" });
             return;
         }

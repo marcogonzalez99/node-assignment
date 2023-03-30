@@ -45,6 +45,20 @@
 # Year Cases
 # ---------------------------------------------
 
+# Year that returns matches - https://node-assignment-1.glitch.me/api/movies/year/1990/2000
+
+# Second year that returns matches - # Year that returns matches - https://node-assignment-1.glitch.me/api/movies/year/1940/1950
+
+# Year that contains string - https://node-assignment-1.glitch.me/api/movies/year/nineteen-ninety-nine/two-thousand-one
+
+# Year that is out of range - https://node-assignment-1.glitch.me/api/movies/year/2000/1998
+
+# Year that is out of bounds - https://node-assignment-1.glitch.me/api/movies/year/1900/2051
+
+# Another year that is out of bounds - https://node-assignment-1.glitch.me/api/movies/year/1890/2020
+
+# Year that does not make sense - https://node-assignment-1.glitch.me/api/movies/year/320/20000
+
 
 # ---------------------------------------------
 # Ratings Cases
