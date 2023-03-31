@@ -55,8 +55,6 @@ app.get('/', helper.ensureAuthenticated, (req, res) => {
 });
 
 
-// Create connection to the database
-require('./handlers/dataConnector.js').connect();
 app.get('/login', (req, res) => {
     res.render('home.ejs', { message: req.flash('error') });
 });
