@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema({
     apikey: String,
     favorites: Array
 });
+
 userSchema.methods.isValidPassword = async function(formPassword) {
     const user = this;
     const hash = user.password_bcrypt;
@@ -33,4 +34,4 @@ userSchema.methods.isValidPassword = async function(formPassword) {
     return compare;
 }
 
-module.exports = mongoose.model('User', userSchema, 'users');
+module.exports = mongoose.model('User', userSchema, 'Users');

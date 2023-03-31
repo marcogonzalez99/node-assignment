@@ -32,6 +32,6 @@
     "sqlite3": "^5.1.6"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   }
 }
