@@ -41,7 +41,12 @@ passport.use('localLogin', strategy);
 // and deserializeUser. In our case, we will save the email in the
 // session data
 passport.serializeUser( (user, done) => done(null, user.email) );
-passport.deserializeUser( (email, done) => {
-UserModel.findOne({ email: email }, (err, user) => done(err,
-user) );
+passport.deserializeUser(async (email, done) => {
+    try {
+        const user = await UserModel.findOne({ email: email });
+        done(null, user, { message: "Welcome"});
+    } catch (error) {
+        done(error);
+    }
 });
+
