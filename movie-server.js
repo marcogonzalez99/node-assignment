@@ -15,6 +15,8 @@ const Movie = require('./models/Movie');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/images'));
+
+
 app.use(cookieParser('oreos'));
 app.use(
     session({
@@ -23,11 +25,14 @@ app.use(
         saveUninitialized: true
     })
 );
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
 // use express flash, which will be used for passing messages
 app.use(flash())
+
 // set up the passport authentication
 require('./handlers/auth.js');
 
@@ -69,11 +74,13 @@ app.post('/login', async (req, resp, next) => {
             failureFlash: true
         })(req, resp, next);
 });
+
 app.get('/logout', (req, resp) => {
     req.logout();
     req.flash('info', 'You were logged out');
     resp.render('login', { message: req.flash('info') });
-})
+});
+
 const port = process.env.port;
 app.listen(port, () => {
     console.log("Server Running at port: " + port);
