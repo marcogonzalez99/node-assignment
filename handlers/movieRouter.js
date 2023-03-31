@@ -1,4 +1,5 @@
 const helper = require('./helpers.js');
+
 const handleAllMovies = (app, Movie) => {
     app.get('/api/movies', helper.ensureAuthenticated, (req,resp) => {
         Movie.find()

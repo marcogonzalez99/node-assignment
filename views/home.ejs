@@ -43,6 +43,11 @@
                     <button type="submit">
                     Login
                     </button>
+                    <% if (message) { %>
+                        <p id="msg2" class="help is-danger">
+                            <%= message %>
+                        </p>
+                    <% } %>
                 </form>
             </div>
 		</section>

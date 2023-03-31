@@ -8,7 +8,7 @@ const localOpt = {
     passwordField : 'password_bcrypt'
 };
 
-// define strategy for validating login
+// Strategy for validating login
 const strategy = new LocalStrategy(localOpt, async (email, password, done) => {
     try {
         

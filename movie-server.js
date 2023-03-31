@@ -1,13 +1,16 @@
 require('dotenv').config();
-
+const path = require('path');
 const express = require('express');
-const app = express();
+
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const flash = require('express-flash');
 const passport = require('passport');
 const helper = require('./handlers/helpers.js');
 require('./handlers/dataConnector.js').connect();
+
+// Creating the Express app
+const app = express();
 
 const Movie = require('./models/Movie');
 
@@ -16,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/images'));
 
-
+// For the Express Sessions
 app.use(cookieParser('oreos'));
 app.use(
     session({
@@ -26,12 +29,12 @@ app.use(
     })
 );
 
-// Passport middleware
+// Passport Initializer and Session
 app.use(passport.initialize());
 app.use(passport.session());
 
 // use express flash, which will be used for passing messages
-app.use(flash())
+app.use(flash());
 
 // set up the passport authentication
 require('./handlers/auth.js');
