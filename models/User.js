@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     },
     membership: {
         date_joined: String,
-        last_update: String,
+        "last-update": String,
         likes: Number
     },
     email: String,
