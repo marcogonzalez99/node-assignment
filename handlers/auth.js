@@ -11,7 +11,7 @@ const localOpt = {
 // Strategy for validating login
 const strategy = new LocalStrategy(localOpt, async (email, password, done) => {
     try {
-        
+        console.log("Trying this");
         // Find the user in the DB associated with this email
         const userChosen = await UserModel.findOne({ email: email });
 
