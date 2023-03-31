@@ -1,5 +1,6 @@
+const helper = require('./helpers.js');
 const handleAllMovies = (app, Movie) => {
-    app.get('/api/movies', (req,resp) => {
+    app.get('/api/movies', helper.ensureAuthenticated, (req,resp) => {
         Movie.find()
         .then((data) => {
             resp.json(data);
@@ -11,7 +12,7 @@ const handleAllMovies = (app, Movie) => {
 };
 
 const handleLimitMovies = (app, Movie) => {
-    app.get('/api/movies/limit/:num', (req,resp) => {
+    app.get('/api/movies/limit/:num', helper.ensureAuthenticated, (req,resp) => {
 
         // This is a check to see if the input is a number or not, returns JSON message
         if (isNaN(req.params.num)) {
@@ -36,7 +37,7 @@ const handleLimitMovies = (app, Movie) => {
 };
 
 const handleSingleMovie = (app, Movie) => {
-    app.get('/api/movies/:id', (req,resp) => {
+    app.get('/api/movies/:id', helper.ensureAuthenticated, (req,resp) => {
 
         // This is a check to see if the input is a number or not, returns JSON message
         if (isNaN(req.params.id)) {
@@ -59,7 +60,7 @@ const handleSingleMovie = (app, Movie) => {
 };
 
 const handleMovieTMDB = (app, Movie) => {
-    app.get('/api/movies/tmdb/:tmdb_id', (req,resp) => {
+    app.get('/api/movies/tmdb/:tmdb_id', helper.ensureAuthenticated, (req,resp) => {
 
         // This is a check to see if the input is a number or not, returns JSON message
         if (isNaN(req.params.tmdb_id)) {
@@ -81,7 +82,7 @@ const handleMovieTMDB = (app, Movie) => {
 };
 
 const handleMovieYear = (app, Movie) => {
-    app.get('/api/movies/year/:min/:max', (req,resp) => {
+    app.get('/api/movies/year/:min/:max', helper.ensureAuthenticated, (req,resp) => {
         const minYear = parseInt(req.params.min);
         const maxYear = parseInt(req.params.max);
 
@@ -112,7 +113,7 @@ const handleMovieYear = (app, Movie) => {
 };
 
 const handleMovieAverage = (app, Movie) => {
-    app.get('/api/movies/ratings/:min/:max', (req, resp) => {
+    app.get('/api/movies/ratings/:min/:max', helper.ensureAuthenticated, (req, resp) => {
         const minRating = req.params.min;
         const maxRating = req.params.max;
 
@@ -140,7 +141,7 @@ const handleMovieAverage = (app, Movie) => {
 };
 
 const handleMovieTitle = (app, Movie) => {
-    app.get('/api/movies/title/:text', (req, resp) => {
+    app.get('/api/movies/title/:text', helper.ensureAuthenticated, (req, resp) => {
         const textToFind = req.params.text;
         // Case insensitive from https://www.mongodb.com/docs/manual/reference/operator/query/regex/
         const query = {
@@ -165,7 +166,7 @@ const handleMovieTitle = (app, Movie) => {
 };
 
 const handleMovieGenre = (app, Movie) => {
-    app.get('/api/movies/genre/:name', (req, resp) => {
+    app.get('/api/movies/genre/:name', helper.ensureAuthenticated, (req, resp) => {
         const genreToFind = req.params.name;
 
         // Finding in an array from 
