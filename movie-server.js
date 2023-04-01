@@ -79,10 +79,10 @@ app.post('/login', async (req, resp, next) => {
 app.get('/logout', (req, resp) => {
     req.logout((err) => {
         if (err) {
-            resp.render('home.ejs' , { message: "Something went wrong"});
+            resp.render('login.ejs' , { message: "Something went wrong"});
         }});
     req.flash('info', 'You were logged out');
-    resp.render('home.ejs', { message: req.flash('info') });
+    resp.render('login.ejs', { message: req.flash('info') });
 });
 
 const port = process.env.port;
