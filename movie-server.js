@@ -64,22 +64,25 @@ app.get('/', helper.ensureAuthenticated, (req, res) => {
 
 
 app.get('/login', (req, res) => {
-    res.render('home.ejs', { message: req.flash('error') });
+    res.render('login.ejs', { message: req.flash('error') });
 });
 app.post('/login', async (req, resp, next) => {
     // use passport authentication to see if valid login
     passport.authenticate('localLogin',
         {
-            successRedirect: '/',
-            failureRedirect: '/login',
+            successRedirect: '/login',
+            failureRedirect: '/',
             failureFlash: true
         })(req, resp, next);
 });
 
 app.get('/logout', (req, resp) => {
-    req.logout();
+    req.logout((err) => {
+        if (err) {
+            resp.render('login.ejs' , { message: "Something went wrong"});
+        }});
     req.flash('info', 'You were logged out');
-    resp.render('login', { message: req.flash('info') });
+    resp.render('home.ejs', { message: req.flash('info') });
 });
 
 const port = process.env.port;

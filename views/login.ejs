@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+</head>
+<body>
+    <header>
+		<h1>Assignment 2 - COMP 4513</h1>
+        <select onchange="window.location.href = this.value;">
+            <option value="" selected>Select a Link</option>
+            <option value="https://github.com/marcogonzalez99/node-assignment">GitHub</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies">All Movies</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/limit/5">Limit Movies</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/13">ID Movie</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/tmdb/28">TMDB Movie</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/year/1990/2000">Movie Year Range</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/ratings/5/7">Movie Ratings</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/title/harry">Movie Title</option>
+            <option value="https://node-assignment-1.glitch.me/api/movies/genre/thriller">Movie Genre</option>
+          </select>
+	</header>
+
+	<main>
+		<section class="hero">
+            <div class="container">
+                <h1 class="hero_heading_1">User Login</h1>
+                <hr class="hero_line">
+                <form action="/logout" method ="GET">
+                    <h3>
+                        Login Successful - Welcome
+                    </h3>
+                    <button type="submit">
+                    Logout
+                    </button>
+                </form>
+            </div>
+		</section>
+	</main>
+
+	<footer>
+        <div>
+            <p style="display: inline-block;">&copy; Marco Gonzalez & Matthew Pham - </p>
+            <span style="display: inline-block; margin-left: 10px;"><a href="https://github.com/marcogonzalez99/node-assignment">Github Link</a></span>
+            <span style="display: inline-block; margin-left: 10px;"><a href="https://unsplash.com/photos/QQj8Tk24X6M">Hero Image</a></span> 
+        </div>
+	</footer>
+</body>
+</html>
