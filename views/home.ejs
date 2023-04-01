@@ -29,25 +29,13 @@
             <div class="container">
                 <h1 class="hero_heading_1">User Login</h1>
                 <hr class="hero_line">
-                <form action="/login" method ="POST">
-                    <label for="username">
-                    Username
-                    </label>
-                    <input type="input" id="email" name="email" value="al@ace.ca"required>
-
-                    <label for="password">
-                    Password
-                    </label>
-                    <input type="password" id="password" name="password_bcrypt" value="mypassword" required>
-
+                <form action="/logout" method ="GET">
+                    <h3>
+                        Login Successful - Welcome
+                    </h3>
                     <button type="submit">
-                    Login
+                    Logout
                     </button>
-                    <% if (message) { %>
-                        <p id="msg2" class="help is-danger">
-                            <%= message %>
-                        </p>
-                    <% } %>
                 </form>
             </div>
 		</section>

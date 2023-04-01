@@ -70,8 +70,8 @@ app.post('/login', async (req, resp, next) => {
     // use passport authentication to see if valid login
     passport.authenticate('localLogin',
         {
-            successRedirect: '/login',
-            failureRedirect: '/',
+            successRedirect: '/',
+            failureRedirect: '/login',
             failureFlash: true
         })(req, resp, next);
 });
