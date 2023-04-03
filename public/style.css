@@ -83,6 +83,7 @@ a {
 .hero_line {
     margin-bottom: 15px;
     margin-top: 10px;
+    width: 100%;
 }
 
 form {
@@ -130,5 +131,11 @@ button {
     margin-top: 10px;
 }
 
+.logout_button {
+    position: relative;
+    top: 100px;
+}
 
-  
+.login_successful {
+    color: green;
+}
