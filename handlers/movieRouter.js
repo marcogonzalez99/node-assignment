@@ -119,7 +119,7 @@ const handleMovieAverage = (app, Movie) => {
         const maxRating = req.params.max;
 
         // This is a check to see if the input is a number or not, returns JSON message, also checks to see if the numbers are in range
-        if (isNaN(minRating) || isNaN(maxRating) || maxRating < minRating || maxRating > 10 || minRating < 0) {
+        if (isNaN(minRating) || isNaN(maxRating) || maxRating < minRating || maxRating >= 10 || minRating <= 0) {
             resp.json({ message: "Invalid rating range" });
             return;
         }
