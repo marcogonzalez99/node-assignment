@@ -12,10 +12,13 @@ require('./handlers/dataConnector.js').connect();
 // Creating the Express app
 const app = express();
 
+// Grabbing the movie Schema
 const Movie = require('./models/Movie');
 
 // Tell Node to use JSON and HTTP Header features in body-parser
 app.use(express.urlencoded({ extended: true }));
+
+// Setting public and images to be used in static, so its viewable in browser
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/images'));
 
@@ -52,7 +55,7 @@ movieRouter.handleMovieTitle(app, Movie);
 movieRouter.handleMovieYear(app, Movie);
 movieRouter.handleSingleMovie(app, Movie);
 
-// Engine
+// Engine for EJS
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
@@ -62,10 +65,13 @@ app.get('/', helper.ensureAuthenticated, (req, res) => {
     res.render('home.ejs', { user: req.user });
 });
 
-
+// Rendering a login page
 app.get('/login', (req, res) => {
     res.render('login.ejs', { message: req.flash('error') });
 });
+
+// A login page that will be loaded upon launch, the user must be authenticated
+// In order to access web features
 app.post('/login', async (req, resp, next) => {
     // use passport authentication to see if valid login
     passport.authenticate('localLogin',
@@ -76,6 +82,8 @@ app.post('/login', async (req, resp, next) => {
         })(req, resp, next);
 });
 
+// Providing the user with a way to logout of the site, it redirects the user to
+// login.ejs displaying the message 'You were logged out'
 app.get('/logout', (req, resp) => {
     req.logout((err) => {
         if (err) {

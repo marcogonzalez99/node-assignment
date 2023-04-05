@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Schema for the movie object, based off the Object in the MongoDB
 const movieSchema = new mongoose.Schema({
     id: Number,
     tmdb_id: Number,
@@ -25,4 +26,5 @@ const movieSchema = new mongoose.Schema({
     }
 });
 
+// Grabbing the 'Movies-300' database for this schema
 module.exports = mongoose.model('Movie', movieSchema, 'Movies-300');
